@@ -4,7 +4,7 @@ import pickle
 import streamlit as st
 
 # loading the saved model
-finalmodel = pickle.load(open('finalmodel.sav', 'rb'))
+finalmodel = pickle.load(open('model_file.sav', 'rb'))
 
 # page title
 st.set_page_config(page_title='Fake Credit Card Transaction Prediction', page_icon=':credit_card:')
