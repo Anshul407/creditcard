@@ -120,9 +120,10 @@ with col3:
 # creating a button to predict the transaction
 submit_button = st.form_submit_button(label='Predict')
 if submit_button:
-# creating a list of the input data
-input_data = [time, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19,v20, v21, v22, v23, v24, v25, v26, v27, v28, amount]
-prediction = finalmodel.predict([input_data])
+    input_data = [time, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19,v20, v21, v22, v23, v24, v25, v26, v27, v28, amount]
+    prediction = finalmodel.predict([input_data])
 
 # displaying the prediction result
-st.write(f"The predicted transaction result is {prediction[0]}")
+    st.write(f"The predicted transaction result is {prediction[0]}")
+    
+
