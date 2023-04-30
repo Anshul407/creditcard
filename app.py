@@ -53,5 +53,7 @@ if st.button('Check for Fraudulent Transaction'):
     prediction = finalmodel.predict([[time, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, amount]])
     if prediction[0] == 1:
         st.error('The details you entered have a fraudulent transaction.')
+        st.write('This app is created by Anshul kunwar , Akanksha Sharma and Rohit Raj')
     else:
         st.success('The transaction is valid.')
+        st.write('This app is created by Anshul kunwar , Akanksha Sharma and Rohit Raj')
