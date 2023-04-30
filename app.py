@@ -11,10 +11,10 @@ st.set_page_config(page_title='Fake Credit Card Transaction Prediction', page_ic
 
 # sidebar for navigation
 st.sidebar.title('Navigation')
-options = st.sidebar.selectbox('', ('Fraudlent Transaction Prediction', ))
+options = st.sidebar.selectbox('', ('Credit Card Fraudlent Transaction Prediction', ))
 
 # getting the input data from the user
-st.title('Fraudlent Transaction Prediction')
+st.title('Credit Card Fraudlent Transaction Prediction')
 st.write('Please enter the following details to check for fraudulent transactions:')
 
 time = st.text_input('Time')
