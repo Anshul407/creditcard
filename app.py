@@ -6,61 +6,123 @@ import streamlit as st
 # loading the saved model
 finalmodel = pickle.load(open('model_file.sav', 'rb'))
 
-# page title and icon
+# page title
 st.set_page_config(page_title='Fake Credit Card Transaction Prediction', page_icon=':credit_card:')
 
 # sidebar for navigation
 st.sidebar.title('Navigation')
-options = st.sidebar.selectbox('', ('Creadit Card Fraudlent Transaction Prediction', ))
+options = st.sidebar.selectbox('', ('Transaction Prediction', ))
 
-# main page header
-st.title('Credit Card Fraudlent transaction Detection')
+# getting the input data from the user
+st.title('Transaction Prediction')
 st.write('Please enter the following details to check for fraudulent transactions:')
 
-# input fields with improved style and layout
-col1, col2, col3 = st.beta_columns(3)
+# setting the color of the headings
+color = 'gray'
 
-with col1:
-    time = st.text_input('Time', key='time')
-    v1 = st.text_input('V1', key='v1')
-    v2 = st.text_input('V2', key='v2')
-    v3 = st.text_input('V3', key='v3')
-    v4 = st.text_input('V4', key='v4')
-    v5 = st.text_input('V5', key='v5')
-    v6 = st.text_input('V6', key='v6')
+# creating input boxes for transaction details
+with st.form(key='credit_card_details'):
+    col1, col2, col3 = st.columns(3)
 
-with col2:
-    v7 = st.text_input('V7', key='v7')
-    v8 = st.text_input('V8', key='v8')
-    v9 = st.text_input('V9', key='v9')
-    v10 = st.text_input('V10', key='v10')
-    v11 = st.text_input('V11', key='v11')
-    v12 = st.text_input('V12', key='v12')
-    v13 = st.text_input('V13', key='v13')
+    with col1:
+        st.header('Time', style=color)
+        time = st.number_input('', min_value=0, step=1)
+
+        st.header('V1', style=color)
+        v1 = st.number_input('', step=0.001)
+
+        st.header('V4', style=color)
+        v4 = st.number_input('', step=0.001)
+
+        st.header('V5', style=color)
+        v5 = st.number_input('', step=0.001)
+
+        st.header('V6', style=color)
+        v6 = st.number_input('', step=0.001)
+
+        st.header('V8', style=color)
+        v8 = st.number_input('', step=0.001)
+
+        st.header('V9', style=color)
+        v9 = st.number_input('', step=0.001)
+
+        st.header('V11', style=color)
+        v11 = st.number_input('', step=0.001)
+
+        st.header('V12', style=color)
+        v12 = st.number_input('', step=0.001)
+
+        st.header('V13', style=color)
+        v13 = st.number_input('', step=0.001)
+
+        st.header('V14', style=color)
+        v14 = st.number_input('', step=0.001)
+
+        st.header('V16', style=color)
+        v16 = st.number_input('', step=0.001)
+
+        st.header('V17', style=color)
+        v17 = st.number_input('', step=0.001)
+
+        st.header('V18', style=color)
+        v18 = st.number_input('', step=0.001)
+
+        st.header('V19', style=color)
+        v19 = st.number_input('', step=0.001)
+
+        st.header('V21', style=color)
+        v21 = st.number_input('', step=0.001)
+
+        st.header('V23', style=color)
+        v23 = st.number_input('', step=0.001)
+
+        st.header('V25', style=color)
+        v25 = st.number_input('', step=0.001)
+
+        st.header('V26', style=color)
+        v26 = st.number_input('', step=0.001)
+
+        st.header('V27', style=color)
+        v27 = st.number_input('', step=0.001)
+
+    with col2:
+        st.header('V2', style=color)
+        v2 = st.number_input('', step=0.001)
+
+        st.header('V3', style=color)
+        v3 = st.number_input('', step=0.001)
+
+        st.header('V7', style=color)
+        v7 = st.number_input('', step=0.001)
+
+        st.header('V10', style=color)
+        v10 = st.number_input('', step=0.001)
 
 with col3:
-    v14 = st.text_input('V14', key='v14')
-    v15 = st.text_input('V15', key='v15')
-    v16 = st.text_input('V16', key='v16')
-    v17 = st.text_input('V17', key='v17')
-    v18 = st.text_input('V18', key='v18')
-    v19 = st.text_input('V19', key='v19')
-    v20 = st.text_input('V20', key='v20')
+    st.header('V15', style=color)
+    v15 = st.number_input('', step=0.001)
 
-v21 = st.text_input('V21', key='v21')
-v22 = st.text_input('V22', key='v22')
-v23 = st.text_input('V23', key='v23')
-v24 = st.text_input('V24', key='v24')
-v25 = st.text_input('V25', key='v25')
-v26 = st.text_input('V26', key='v26')
-v27 = st.text_input('V27', key='v27')
-v28 = st.text_input('V28', key='v28')
-amount = st.text_input('Amount', key='amount')
+    st.header('V20', style=color)
+    v20 = st.number_input('', step=0.001)
 
-# prediction button with improved style and layout
-if st.button('Check for Fraudulent Transaction'):
-    prediction = finalmodel.predict([[time, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, amount]])
-    if prediction[0] == 1:
-       st.error('The details you entered have a fraudulent transaction.')
-    else:
-       st.success('The transaction is valid.') 
+    st.header('V22', style=color)
+    v22 = st.number_input('', step=0.001)
+
+    st.header('V24', style=color)
+    v24 = st.number_input('', step=0.001)
+
+    st.header('V28', style=color)
+    v28 = st.number_input('', step=0.001)
+
+    st.header('Amount', style=color)
+    amount = st.number_input('', step=0.001)
+
+# creating a button to predict the transaction
+submit_button = st.form_submit_button(label='Predict')
+if submit_button:
+# creating a list of the input data
+input_data = [time, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19,v20, v21, v22, v23, v24, v25, v26, v27, v28, amount]
+prediction = finalmodel.predict([input_data])
+
+# displaying the prediction result
+st.write(f"The predicted transaction result is {prediction[0]}")
