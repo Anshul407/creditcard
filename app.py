@@ -11,13 +11,12 @@ st.set_page_config(page_title='Fake Credit Card Transaction Prediction', page_ic
 
 # sidebar for navigation
 st.sidebar.title('Navigation')
-options = st.sidebar.selectbox('', ('Transaction Prediction', ))
+options = st.sidebar.selectbox('', ('Credit Card Fraudlent Transaction Prediction', ))
 
 # getting the input data from the user
 st.title('Transaction Prediction')
 st.write('Please enter the following details to check for fraudulent transactions:')
 
-# setting the color of the headings
 color = 'gray'
 
 # creating input boxes for transaction details
@@ -97,7 +96,6 @@ with st.form(key='credit_card_details'):
 
         st.header('V10', style=color)
         v10 = st.number_input('', step=0.001)
-
 with col3:
     st.header('V15', style=color)
     v15 = st.number_input('', step=0.001)
@@ -116,13 +114,10 @@ with col3:
 
     st.header('Amount', style=color)
     amount = st.number_input('', step=0.001)
-
 # creating a button for prediction
 if st.button('Check for Fraudulent Transaction'):
     prediction = finalmodel.predict([[time, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, amount]])
     if prediction[0] == 1:
         st.error('The details you entered have a fraudulent transaction.')
     else:
-        st.success('The transaction is valid.')
-    
-
+        st.success('The transaction is valid.') 
