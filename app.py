@@ -2,6 +2,7 @@
 
 import pickle
 import streamlit as st
+pip install -r requirements.txt
 
 # loading the saved model
 finalmodel = pickle.load(open('model_file.sav', 'rb'))
